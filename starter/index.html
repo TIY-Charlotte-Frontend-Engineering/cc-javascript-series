@@ -1,0 +1,59 @@
+<!--
+    This file is a pre-built template that contains a structure for frontend weather
+    data. It imports js/app.js, which will contain all of the application's Javascript
+    code. 
+
+    Note that we will use the ID's specified in HTML to reference and updaate individual
+    elements. For example, we can refer to and change the text inside of the #temperature
+    element from Javascript.
+
+    Note: I am not an artist and I apologize if my makeshift color scheme offends your
+    more developed senses :)
+-->
+
+<!doctype html>
+<html>
+
+<head>
+    <title>World-class Weather</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <!-- primary display for weather info -->
+    <!-- <h1> will show the name of the selected place -->
+    <h1 id="location">Weather</h1>
+    <div id="weather-display">
+        <!-- primary display, which includes temp, condition, and a summary image -->
+        <div id="primary-weather">
+            <div class="weather-segment">
+                <h2><span id="temperature">--</span>&#176;F</h2>
+                <h3 id="conditions">unknown conditions</h3>
+            </div>
+            <img id="conditions-img" />
+        </div>
+
+        <!-- secondary stat: humidity-->
+        <div class="weather-segment ">
+            <h2><span id="humidity">--</span>&#37;</h2>
+            <h3>humidity</h3>
+        </div>
+
+        <!-- secondary stat: wind speed -->
+        <div class="weather-segment">
+            <h2><span id="wind-speed">--</span> mph</h2>
+            <h3>wind speed</h3>
+        </div>
+    </div>
+
+    <!-- search box at the bottom of the app -->
+    <div id="search-area">
+        <input type="text" id="search" placeholder="Charlotte, NC" />
+        <button id="submit">Scan</button>
+    </div>
+</body>
+
+</html>
