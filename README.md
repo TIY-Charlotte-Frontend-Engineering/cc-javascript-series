@@ -1,2 +1,2 @@
-# cc-javascript-series
-Code and notes for the Javascript crash course series in Charlotte, NC.
+# Javascript series
+This repository contains starter and final content for each of our JS-focused crash course events in Charlotte, NC. Note that this is finished code (not necessarily in the state where we finished in class), though we'll try to add comments to explain any important differences.
