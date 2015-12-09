@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.css">
+
+    <!-- Import some external libraries we can use for visualizing functions. -->
+    <script src="http://cdn.rawgit.com/almende/vis/master/dist/vis.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/anyweez/eop/master/eop.js"></script>
+
+    <!--- We'll edit this file during the course -->
+    <script type="text/javascript" src="functions.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        
+        #viz {
+            width: 100%;
+            /*
+             * '100vh' means '100% of viewport height'; this is a new measurement unit and
+             * is supported by most modern browsers (woohoo!). More info on where it works
+             * is available here:
+             *      http://caniuse.com/#feat=viewport-units
+             */
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Our Javascript will draw the graphic here. -->
+    <div id="viz"></div>
+</body>
+
+</html>
