@@ -1,0 +1,1 @@
+All of these sound samples were provided by [SampleSwap](http://sampleswap.org/) and are intended for instructional purposes only. Please do not use any of these sound bytes beyond the terms that they're licensed for (see SampleSwap for more information).

@@ -1,0 +1,50 @@
+body {
+    margin-top: 10%;
+}
+
+.button {
+    display: inline-block;
+    border: 2px solid black;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    margin: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+}
+
+div.row {
+    text-align: center;
+}
+
+.row-1 {
+    background-color: #2B547E;
+    border-color: #BCC6CC;
+    color: #BCC6CC;
+}
+
+.row-2 {
+    background-color: #348017;
+    border-color: #6CBB3C;
+    color: #6CBB3C;
+}
+
+@keyframes pressed {
+    from {}
+    to {
+        background-color: #FFD801;
+        width: 90px;
+        height: 90px;
+        margin: 9px;
+        line-height: 90px;
+    }
+}
+
+.activated {
+    animation-name: pressed;
+    animation-duration: .2s;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+}
