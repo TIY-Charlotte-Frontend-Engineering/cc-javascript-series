@@ -1,11 +1,4 @@
 /* jslint browser: true */
-function triggerSound(id) {
-
-    return function () {
-
-    };
-}
-
 function deactivate(element) {
     return function () {
         element.classList.remove('activated');
@@ -17,7 +10,6 @@ window.addEventListener('load', function () {
     var buttons = document.querySelectorAll('.button');
 
     for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', triggerSound(buttons[i].id));
         buttons[i].addEventListener('animationend', deactivate(buttons[i]));
     }
 
