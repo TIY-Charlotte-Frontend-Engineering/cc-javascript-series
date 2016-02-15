@@ -1,0 +1,29 @@
+.button {
+    background-color: red;
+    border: 1px solid black;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    text-transform: uppercase;
+    margin: 5px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+@keyframes activation {
+    0% {}
+    100% {
+        background-color: yellow;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        margin: 15px;
+    }
+}
+
+.active {
+    animation-name: activation;
+    animation-duration: 2s;
+    animation-direction: alternate;
+}

@@ -9,6 +9,8 @@ window.addEventListener('load', function () {
     // Select all buttons
     var buttons = document.querySelectorAll('.button');
 
+    // When the animation ends, remove the 'activated' class from the item. This
+    // is important so that we can re-add it and still get the animation.
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('animationend', deactivate(buttons[i]));
     }
@@ -29,7 +31,6 @@ window.addEventListener('load', function () {
         var button = document.getElementById('view-' + pressed);
         if (button !== null) {
             button.classList.add('activated');
-
         }
     });
 });
