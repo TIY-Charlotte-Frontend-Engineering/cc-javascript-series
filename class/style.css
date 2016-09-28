@@ -1,0 +1,65 @@
+header {
+    background-color: #454545;
+    color: #E9E9E9;
+    padding: 12px 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main img {
+    width: 100%;
+}
+
+#info h2 {
+    margin: 0;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 1em;
+}
+
+#info h3 {
+    margin: 5px 0;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: normal;
+    font-style: italic;
+}
+
+footer {
+    background-color: white;
+    height: 70px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+}
+
+footer > button {
+    padding: 25px 35px;
+    vertical-align: top;
+
+    position: absolute;
+    top: 0;
+}
+
+footer > button:first-of-type {
+    background-color: #FF8C8C;
+    border: 1px solid #D0021B;
+    color: #D0021B;
+    border-left-width: 0;
+
+    position: absolute;
+    left: 0;
+}
+
+footer > button:last-of-type {
+    background-color: #A9FF96;
+    border: 1px solid #417505;
+    color: #417505;
+    border-right-width: 0;
+
+    position: absolute;
+    right: 0;
+}
