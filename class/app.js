@@ -1,73 +1,88 @@
-// Variables are names that we give to data.
-// Functions are names that we give to processes.
+console.log('foods');
 
+// Variable containing a string
+// String = 'words'
+// let search = 'app';
+// let words = ['orange', 'Apple', 'kiwi', 'pear', 'appricot', 'appetizers', 'app stores', 'appetite'];
+let words = [];
 
+// Loops let us do something multiple times
+// Check each word to see if it has 'app' in it
+// console.log(words[2]);
 
-// when i run this function, print 'hello paradise'
-function startup() {
-    console.log('hello paradise');
+// for (<where-to-start>; <continue-as-long-as>, <each-time>)
+// for (let i = 0; i < words.length; i++) {
+    // If the current word includes 'app', print it out
+    // if (words[i].includes(search)) {
+        // console.log(words[i]);
+    // }
+// }
 
-    // Setting up events
-    //   1. What sort of event.
-    //   2. What to do when it happens.
-    //   3. What element the event occurs on.
+// Set up an 'event listener'
+window.addEventListener('load', function () {
+    console.log('page has loaded');
 
-    // When the green button is clicked, call rejoice
-    let greenButton = document.querySelector('#yes');
-    greenButton.addEventListener('click', rejoice);
+    // Find the item with the ID of 'search' in the document.
+    let searchBox = document.querySelector('#search');
+    // searchBox.value = 'search for it'; // special! for input boxes only
 
-    // When the red button is clicked, call renounce
-    let redButton = document.querySelector('#no');
-    redButton.addEventListener('click', renounce);
-}
+    // 'keyup' is the event that happens when you let go of a key
+    searchBox.addEventListener('keyup', function () {
+        // 1. Get whatever is currently in the text box 
+        let target = searchBox.value;
 
-function rejoice() {
-    console.log('lo! what a book!');
-    getNewBook(true);
-}
+        // 2. Search through our array of words for all matches
+        let parent = document.querySelector('#results');
 
-function renounce() {
-    console.log('never again');
-    getNewBook(false);
-}
+        // innerHTML is the html that's inside of the element (in this case
+        // a bunch of li's). Replace all innerHTML with '' (nothing).
+        parent.innerHTML = '';
+        for (let i = 0; i < words.length; i++) {
+            let current = words[i].toLowerCase();
+            let targetLower = target.toLowerCase();
 
-function getNewBook(liked) {
-    fetch('http://crash.queencityiron.com/book')
-        // Once we hear back, do something with the response.
-        .then(function readJSON(response) {
-            // Read the response as JSON and give me the JS object.
-            return response.json();
-        })
-        .then(function logIt(book) {
-            // 'book' is the new book.
-            // document.querySelector() uses CSS notation ]
-            // for selecting elements
-            let titleBox = document.querySelector('#info > h2');
-            // textContent is the text that shows up between
-            // the starting and ending tags.
-            // <p>this stuff</p>
-            titleBox.textContent = book.title;
+            if (current.includes(targetLower)) {
+                let item = document.createElement('li');
+                item.textContent = words[i]; // the current word 
 
-            let authorBox = document.querySelector('#info > h3');
-            authorBox.textContent = book.author;
+                item.addEventListener('click', function () {
+                    // When someone clicks:
+                    //  1. Update search box with the clicked word.
+                    searchBox.value = words[i];
+                    //  2. Clear the autocomplete box
+                    parent.innerHTML = '';
+                });
 
-            // if ('4' === 4)// nope
-            // if ('4' == 4) // yep
-
-            if (liked) { // if liked === true, if liked == true
-                console.log('Since you love it, we bought it for you!');
-                console.log('Your account was charged $' + book.price);
+                parent.appendChild(item);
             }
+        }
 
-            let headliner = document.querySelector('main > img');
-            headliner.src = book.cover;
+        // 3. Clear out all <li>'s that exist already.
+        // 4. Every time we find one, create an <li> and add it to 'parent'.
+        // New item! Its a <li>
+        // let item = document.createElement('li');
+        // item.textContent = 'Food I like';   // 'textContent' are the words inside
+                                            // <li>Food I like</li>
 
-            // Add a class called 'cool-class' to an element
-            // headliner.classList.add('cool-class');
-            // Modify any attribute of the element 
-            // headliner.setAttribute('src', book.cover);
-        });
-}
+        // parent.appendChild(item); // add 'item' as a child of 'parent'
+    });
+});
 
-// When the window loads, run 'sayHi'
-window.addEventListener('load', startup);
+fetch('https://api.data.gov/ed/collegescorecard/v1/schools?school.state=NC&api_key=r6qJ984AavyM0zOL2LJ8UYvfR6lOfXQmAeOQ1kpQ')
+    .then(function (response) {
+        return response.json(); // convert it to javascript from json
+                                // JSON is a format for structuring text
+    })
+    .then(function (data) {
+        // data.results is an array
+        // data.results[i] is an object
+        // data.results[i].school is an object 
+        // data.results[i].school.name is a string
+        // data.results[i].school.name = bingo
+
+        // Run data.results.length times (20 times)
+        for (let i = 0; i < data.results.length; i++) {
+            // console.log(data.results[i].school.name);
+            words.push(data.results[i].school.name);
+        }
+    });
